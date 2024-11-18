@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма обратной связи</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500&subset=cyrillic" rel="stylesheet">
+    <style>
+        
+{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+
+    html {
+    font-size: 16px;
+    }
+
+    body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    }
+
+    .form-container {
+     max-width: 450px;
+     width: 95%;
+     margin: auto;
+     padding: 40px;
+            }
+        </style>
+        </head>
+        <body>
+            <div class="form-container" id="form">
+                <!-- Form content goes here -->
+            </div>
+        </body>
+        </html>
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form action="" id="form">
+            <input type="text" id="name" placeholder="Ваше имя" />
+            <input type="email" id="email" placeholder="Ваш email" />
+            <input type="submit" id="submit" value="Отправить" />
+        </form>
+    </div>
+
+<script>
+    var inputs = [].slice.call(document.querySelectorAll('input'));
+
+    inputs.forEach(Function(input) {
+        if(input.getAttribute('type') !=='submit') {
+            console.log(input);
+            if(input.value !=''){
+                var label = document.querySelector('label',for='',input.id);
+                label.classList.add('focused');
+            }
+        }
+    };
+    input.addEventListener('focusin', handleFocusIn, false);
+    input.addEventListener('focusout', handleFocusOut, false);
+
+
+    function handleFocusIn() {
+    const label = document.querySelector('label[for="' + this.id + '"]');
+    if (label) {
+        label.classList.add('focused');
+    }
+    console.log(this.id + ' focus in');
+}
+
+
+    function handleFocusOut() {
+    const label = document.querySelector('label[for="' + this.id + '"]');
+    if (label && this.value === '') {
+        label.classList.remove('focused');
+    }
+    console.log(this.id + ' focus out');
+}
+</script>
+</body>
+</html>
+
+
